@@ -1,0 +1,81 @@
+<!-- REGISTER as a user -->
+<div class="row">
+  <div class="col-8 m-auto">
+    <!-- registering form-->
+    <form
+      #loginForm="ngForm"
+      (ngSubmit)="onSubmit(loginForm)"
+      novalidate
+      autocomplete="off"
+    >
+      <!-- register form title -->
+      <div class="text-center mb-4">
+        <h1 class="h3 mt-5 mb-3 font-weight-normal">
+          ROYAL <i class="fas fa-angle-double-up text-success"></i>CRM
+        </h1>
+        <p>Create Your Account</p>
+      </div>
+
+      <!-- email -->
+      <div class="form-group mb-4">
+        <div class="form-group">
+          <input
+            #emailF="ngModel"
+            [(ngModel)]="form.email"
+            name="email"
+            required
+            email
+            [ngClass]="{
+              'is-invalid': emailF.invalid && emailF.touched,
+              'is-valid': emailF.touched && emailF.valid
+            }"
+            type="email"
+            placeholder="john@doe.com"
+            id="email"
+            class="form-control"
+            autocomplete="username"
+          />
+          <div class="invalid-feedback">Valid email is required</div>
+        </div>
+      </div>
+
+      <!-- password -->
+      <div class="form-group mb-4">
+        <div class="form-group">
+          <input
+            #passwordF="ngModel"
+            [(ngModel)]="form.password"
+            name="password"
+            required
+            [ngClass]="{
+              'is-invalid': passwordF.invalid && passwordF.touched,
+              'is-valid': passwordF.touched && passwordF.valid
+            }"
+            type="password"
+            id="password"
+            class="form-control"
+            autocomplete="current-password"
+          />
+          <div class="invalid-feedback">Password is required</div>
+        </div>
+      </div>
+
+      <!-- if errors -->
+      <div class="text-danger m-3" *ngIf="error">
+        {{ error }}
+      </div>
+
+      <!-- button to create account -->
+      <button
+        [disabled]="loginForm.invalid"
+        class="btn btn-lg btn-primary btn-block"
+        type="submit"
+      >
+        Create An Account
+      </button>
+    </form>
+
+    <hr />
+    <p class="mt-5 mb-3 text-muted text-center">&copy; 2019-2020</p>
+  </div>
+</div>

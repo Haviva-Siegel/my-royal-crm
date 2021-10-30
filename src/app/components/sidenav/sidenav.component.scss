@@ -1,0 +1,7 @@
+ul {
+  height: 100%;
+}
+
+.active {
+  background-color: lighten($color: #000, $amount: 50%);
+}

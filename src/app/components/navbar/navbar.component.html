@@ -1,0 +1,55 @@
+<!-- navbar -->
+<nav
+  class="navbar navbar-expand-sm navbar-dark bg-info fixed-top shadow"
+  aria-label="Third navbar example"
+>
+  <div class="container-fluid">
+    <!-- brand name -->
+    <a class="navbar-brand" routerLink="/dashboard/customers">
+      R<i class="bi bi-circle"></i>yal CRM
+    </a>
+    <!-- toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarsExample03"
+      aria-controls="navbarsExample03"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- navbar options -->
+    <div class="collapse navbar-collapse" id="navbarsExample03">
+      <ul class="navbar-nav mb-2 mb-sm-0 ms-auto">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="dropdown03"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <!-- connected user email -->
+            <i class="bi bi-person-fill"></i>
+            {{ (user$ | async)?.email }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdown03">
+            <li>
+              <a class="dropdown-item" href="#">
+                <i class="bi bi-gear-fill"></i> My Preferences
+              </a>
+            </li>
+            <!-- to sign out (with directive)-->
+            <li>
+              <a appLogout class="dropdown-item">
+                <i class="bi bi-box-arrow-right"></i> Sign Out
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

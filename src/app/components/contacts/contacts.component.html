@@ -1,0 +1,52 @@
+<!-- contacts header -->
+<app-page-header
+  title="contacts"
+  icon="bi bi-card-list"
+  description="contacts list"
+></app-page-header>
+
+<!-- contacts main -->
+<div class="container">
+  <div class="row">
+    <!-- contacts title -->
+    <div class="col-12">
+      <h1>Contacts List</h1>
+    </div>
+  </div>
+  <div class="row">
+    <!-- contacts body -->
+    <div class="col-10">
+      <table
+        *ngIf="contacts.length; else noContacts"
+        class="table table-bordered"
+      >
+        <!-- table title -->
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Birthday</th>
+            <th>Phones</th>
+          </tr>
+        </thead>
+        <!-- table body -->
+        <tbody>
+          <tr *ngFor="let contact of contacts; index as idx">
+            <td>{{ idx + 1 }}</td>
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.birthday | date: dateFormat }}</td>
+            <td>
+              <ul *ngIf="contact.phones.length; else noPhones">
+                <li *ngFor="let phone of contact.phones">{{ phone }}</li>
+              </ul>
+              <ng-template #noPhones> No phones... </ng-template>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <ng-template #noContacts>No Contacts...</ng-template>
+    </div>
+  </div>
+</div>

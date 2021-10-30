@@ -1,0 +1,100 @@
+<!-- login -->
+<div class="row">
+  <div class="col-8 m-auto">
+    <!-- login form -->
+    <form
+      #loginForm="ngForm"
+      (ngSubmit)="onSubmit(loginForm)"
+      novalidate
+      autocomplete="off"
+    >
+      <!-- login form title-->
+      <div class="text-center mb-4">
+        <h1 class="h3 mt-5 mb-3 font-weight-normal">
+          ROYAL <i class="fas fa-angle-double-up text-success"></i>CRM
+        </h1>
+        <p>Login with your account</p>
+      </div>
+
+      <!-- email -->
+      <div class="form-group mb-4">
+        <div class="form-group">
+          <input
+            #emailF="ngModel"
+            [(ngModel)]="form.email"
+            name="email"
+            required
+            email
+            [ngClass]="{
+              'is-invalid': emailF.invalid && emailF.touched,
+              'is-valid': emailF.touched && emailF.valid
+            }"
+            type="email"
+            placeholder="john@doe.com"
+            id="email"
+            class="form-control"
+            autocomplete="username"
+          />
+          <div class="invalid-feedback">Valid email is required</div>
+        </div>
+      </div>
+
+      <!-- password -->
+      <div class="form-group mb-4">
+        <div class="form-group">
+          <input
+            #passwordF="ngModel"
+            [(ngModel)]="form.password"
+            name="password"
+            required
+            [ngClass]="{
+              'is-invalid': passwordF.invalid && passwordF.touched,
+              'is-valid': passwordF.touched && passwordF.valid
+            }"
+            type="password"
+            id="password"
+            class="form-control"
+            autocomplete="current-password"
+          />
+          <div class="invalid-feedback">Password is required</div>
+        </div>
+      </div>
+
+      <!-- errors -->
+      <div class="text-danger m-3" *ngIf="error">
+        {{ error }}
+      </div>
+
+      <div class="text-center">
+        <!-- button to signin -->
+        <button
+          [disabled]="loginForm.invalid"
+          class="btn btn-lg btn-primary btn-block me-1"
+          type="submit"
+        >
+          Sign in
+        </button>
+
+        <!-- button to redirect to create an account -->
+        <a
+          class="btn btn-lg btn-primary btn-block"
+          routerLink="/register"
+          type="button"
+        >
+          Create An Account
+        </a>
+      </div>
+    </form>
+
+    <hr />
+
+    <!-- button to log in with google -->
+    <div class="text-center">
+      <button appSignWithGoogle class="btn btn-lg btn-primary btn-block">
+        Log in with Google
+      </button>
+    </div>
+
+    <p class="mt-5 mb-3 text-muted text-center">&copy; 2019-2020</p>
+  </div>
+</div>

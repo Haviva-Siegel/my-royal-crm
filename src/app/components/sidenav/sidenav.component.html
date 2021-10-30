@@ -1,0 +1,15 @@
+<!-- SIDENAV STRUCTURE-->
+<ul class="nav flex-column pt-4 bg-info mt-5">
+  <li *ngFor="let navItem of navItems" class="pe-0">
+    <a
+      [routerLink]="navItem.link"
+      routerLinkActive="active"
+      class="nav-link text-white px-md-1 mx-md-0 mx-lg-2"
+    >
+      <i [class]="navItem.icon"></i>
+      <span class="d-none d-md-inline mx-md-0 mx-lg-2">
+        {{ navItem.title | titlecase }}
+      </span>
+    </a>
+  </li>
+</ul>

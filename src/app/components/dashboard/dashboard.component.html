@@ -1,0 +1,24 @@
+<!-- DASHBOARD COMPONENT FOR SHOWN ONLY TO CONNECTED USERS -->
+<!-- structure to the header of all components -->
+<header>
+  <app-navbar></app-navbar>
+</header>
+
+<!-- structure of the body of all components -->
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- structure of the sidenav -->
+      <div class="col-2 pl-0 g-0">
+        <app-sidenav></app-sidenav>
+      </div>
+      <!-- structure of the main -->
+      <div class="col-10 mt-3">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- structure of the sidenav -->
+<footer></footer>
